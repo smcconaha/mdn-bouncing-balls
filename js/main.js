@@ -77,7 +77,7 @@ const balls = []; //balls stored here
 while (balls.length < 25) { /*creates new instance of Ball() using random() and randomRGB()
  then pushes it to end ball array if array length is less than 25*/
     const size = random(10,20);
-    const ball = new Ball (
+    const ball = new Ball(
         random(0 + size, width - size),
         random(0 + size, height - size),
         random(-7, 7),
@@ -98,22 +98,10 @@ function loop () {
     for (const ball of balls) {  
         ball.draw(); //draws each ball on screen
         ball.update(); //update position and velocity
+        ball.collisionDetect(); //call collisionDetect () method in each frame of the loop 
     }
 
     requestAnimationFrame(loop); /*when method repeatedly run and passed same fn, it runs the 
     fn a set number of times per second for smooth animation*/
-    
-    //need to call collisionDetect () method in each frame of the loop 
-    function loop() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
-        ctx.fillRect(0, 0, width, height);
-      
-        for (const ball of balls) {
-          ball.draw();
-          ball.update();
-          ball.collisionDetect();
-        }
-      
-        requestAnimationFrame(loop);
-      }
 }
+loop();
