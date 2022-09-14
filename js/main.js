@@ -10,8 +10,7 @@ const height = canvas.height = window.innerHeight; //variables = browser viewpor
 //helper function to generate random number
 
 function random(min, max) {
-    const num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return num; //Why +1? so we don't have 0.
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 //helper function to generate random color
